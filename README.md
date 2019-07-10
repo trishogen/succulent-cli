@@ -1,38 +1,29 @@
 # Succulent::Cli
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/succulent/cli`. To experiment with that code, run `bin/console` for an interactive prompt.
+This CLI scrapes data from https://www.succulentsandsunshine.com and allows users to learn more about succulents. A list of succulents will be displayed by name (scientific name and common name), the user may then choose a succulent which he/she would like more information on. Additional information such as a description of the plant, ideal water conditions and ideal light conditions will be displayed. The user can then choose a different plant, go back to the main menu, or exit.
 
-TODO: Delete this and the text above, and describe your gem
+To watch a demo of the CLI in action you can visit [here](https://www.youtube.com/watch?v=xzdQmlTeiRw).
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Clone this repository and execute:
 
-```ruby
-gem 'succulent-cli'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install succulent-cli
+    `$ cd succulent-cli`
+    `$ bundle`
 
 ## Usage
 
-TODO: Write usage instructions here
+To run the cli got to the project directory and execute:
 
-## Development
+    `$ bin/succulent-cli`
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+## Note
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+At the time this project was published there was a bug in the Fairy Castle Cactus web page causing the values to be scraped to be returned in different elements. For this reason this succulent has been removed from the returned results in the `SucculentCli::Scraper` class. If this is fixed, lines 26-29 of this class should be removed and should be replaced with simply `@scraped_succulents`.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/'trishogen'/succulent-cli. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/trishogen/succulent-cli. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -40,4 +31,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Succulent::Cli project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/'trishogen'/succulent-cli/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Succulent::Cli project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/trishogen/succulent-cli/blob/master/CODE_OF_CONDUCT.md).
