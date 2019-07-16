@@ -20,6 +20,13 @@ class SucculentCli::Succulent
     self
   end
 
+  def add_details
+    if self.sunlight.nil?
+      more_info = SucculentCli::Scraper.new.scrape_succulent_info(self.url)
+      self.add_more_succulent_info(more_info)
+    end
+  end
+
   def self.all
     @@all
   end

@@ -111,8 +111,7 @@ class SucculentCli::CLI
 
   def show_more_succulent_info(input)
     the_succulent = SucculentCli::Succulent.find(input)
-    more_info = @scraper.scrape_succulent_info(the_succulent.url)
-    the_succulent.add_more_succulent_info(more_info)
+    the_succulent.add_details
     display_succulent_info(the_succulent)
   end
 
