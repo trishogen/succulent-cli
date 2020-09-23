@@ -37,8 +37,8 @@ class SucculentCli::CLI
 
   def list_succulents
     puts "Here is a list of succulents you can learn more about:".yellow
-    puts ""
-    puts ""
+    puts
+    puts
 
     start_index = @display_page * @display_size - @display_size
     stop_index = @display_page * @display_size - 1
@@ -47,14 +47,14 @@ class SucculentCli::CLI
     (start_index + 1) do |succulent, i|
       puts "#{i}. #{succulent.name}"
     end
-    puts ""
+    puts
   end
 
   def menu
     input = nil
     while input != "exit"
-      puts ""
-      puts ""
+      puts
+      puts
       puts "Enter the number of the succulent you would like more info on, " \
             "type next to go to the next page, type back to go to the " \
             "previous page, type list to see the list of plants again, or " \
@@ -80,11 +80,12 @@ class SucculentCli::CLI
 
   def change_page(direction)
     @total_pages = @scraper.total_pages
-    if direction == "increase"
+    case direction
+    when "increase"
       increase_page
-    elsif direction == "decrease"
+    when "decrease"
       decrease_page
-    elsif direction == "reset"
+    when "reset"
       @display_page = 1
     end
     list_succulents
@@ -92,20 +93,12 @@ class SucculentCli::CLI
 
   def increase_page
     # if user is on the last page and presses next go to the first page
-    if @display_page == @total_pages
-      @display_page = 1
-    else
-      @display_page += 1
-    end
+    @display_page = @display_page == @total_pages ? 1 : @display_page + 1
   end
 
   def decrease_page
     # if user is on the first page and presses back go to the last page
-    if @display_page == 1
-      @display_page = @total_pages
-    else
-      @display_page -= 1
-    end
+    @display_page = @display_page == 1 ? @total_pages : @display_page - 1
   end
 
 
@@ -116,21 +109,21 @@ class SucculentCli::CLI
   end
 
   def display_succulent_info(succulent)
-    puts ""
+    puts
     puts succulent.name.green
-    puts ""
+    puts
     puts succulent.description
-    puts ""
-    puts ""
+    puts
+    puts
     puts "Sun requirements: #{succulent.sunlight}"
     puts "Water requirements: #{succulent.water}"
-    puts "Location requirements: #{succulent.location}"
-    puts ""
+    puts "Zone requirements: #{succulent.zone}"
+    puts
     puts "To learn more about me please visit: #{succulent.url}"
   end
 
   def goodbye
-    puts ""
+    puts
     puts "
                                                               ,`''',
           Please come back for more information on            ;' ` ;
