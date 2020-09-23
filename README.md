@@ -17,6 +17,12 @@ To run the cli got to the project directory and execute:
 
     `$ bin/succulent-cli`
 
+## Tests
+
+To run the tests:
+
+    `$ rspec`
+
 ## Note
 
 At the time this project was published there was a bug in the Fairy Castle Cactus web page causing the values to be scraped to be returned in different elements. For this reason this succulent has been removed from the returned results in the `SucculentCli::Scraper` class. If this is fixed, lines 26-29 of this class should be removed and should be replaced with simply `@scraped_succulents`.
