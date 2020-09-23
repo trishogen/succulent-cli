@@ -5,7 +5,10 @@ class SucculentCli::Scraper
   MAIN_PAGE = "https://www.succulentsandsunshine.com/types-of-succulents-plants/page/"
 
   def initialize(total_pages = 6)
-    # set number of pages of succulents, this could possibly change in the future
+    # set number of pages of succulents -- there are more than 6 pages, but the
+    # scraping gets slower when you include them all
+    # TODO: dynamically get correct # of pages
+    # TODO: scrape appropriate pages when user presses "next"/"back"
     @total_pages = total_pages
     @scraped_succulents = []
   end
@@ -43,7 +46,7 @@ class SucculentCli::Scraper
     description = succulent_page.css("div.fusion-text p").first.text
     sunlight = succulent_page.css("i.fusion-li-icon.fa-sun.fas").first.\
     parent.parent.css("div.fusion-li-item-content p").text
-    location = succulent_page.css("i.fusion-li-icon.fa-home.fas").first.\
+    zone = succulent_page.css("i.fusion-li-icon.fa-thermometer-half.fas").first.\
     parent.parent.css("div.fusion-li-item-content p").text
     water = succulent_page.css("i.fusion-li-icon.fa-tint.fas").first.\
     parent.parent.css("div.fusion-li-item-content p").text
@@ -51,7 +54,7 @@ class SucculentCli::Scraper
     succulent_additional_info = {
       description: description,
       sunlight: sunlight,
-      location: location,
+      zone: zone,
       water: water
     }
   end

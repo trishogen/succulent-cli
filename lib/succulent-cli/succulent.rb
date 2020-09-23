@@ -1,6 +1,6 @@
 class SucculentCli::Succulent
 
-  attr_accessor :name, :url, :description, :sunlight, :water, :location
+  attr_accessor :name, :url, :description, :sunlight, :water, :zone
 
   @@all = []
 
